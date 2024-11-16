@@ -49,10 +49,22 @@ espresso = format_menu("espresso")
 latte = format_menu("latte")
 cappuccino = format_menu("cappuccino")
 
+
 def menu_ingredients(menu_item):
     ingredients = menu_item["ingredients"]
     return ingredients
 
+espresso_ingredients = menu_ingredients(espresso)
+latte_ingredients = menu_ingredients(latte)
+cappuccino_ingredients = menu_ingredients(cappuccino)
+
+def menu_cost(menu_item):
+    cost = menu_item["cost"]
+    return cost
+
+espresso_cost = menu_cost(espresso)
+latte_cost = menu_cost(latte)
+cappuccino_cost = menu_cost(cappuccino)
 
 '''
 TODO: 
@@ -149,6 +161,18 @@ TODO:
 
 
 
-print(espresso['ingredients'])
+print(espresso)
 print(latte)
 print(cappuccino)
+print()
+print()
+print()
+print(espresso_ingredients)
+print(latte_ingredients)
+print(cappuccino_ingredients)
+print()
+print()
+print()
+print(espresso_cost)
+print(latte_cost)
+print(cappuccino_cost)
