@@ -33,10 +33,21 @@ resources = {
 
 
 def format_menu(menu_item):
-    item_espresso = MENU[menu_item]["espresso"]
-    item_latte = MENU[menu_item]["latte"]
-    item_coffee = MENU[menu_item]["coffee"]
+    item_espresso = MENU["espresso"]
+    item_latte = MENU["latte"]
+    item_cappuccino = MENU["cappuccino"]
+    if menu_item == 'espresso':
+        return item_espresso
+    elif menu_item == 'latte':
+        return item_latte
+    elif menu_item == 'cappuccino':
+        return item_cappuccino
+    else:
+        print("invalid selection")
 
+espresso = format_menu("espresso")
+latte = format_menu("latte")
+cappuccino = format_menu("cappuccino")
 
 '''
 TODO: 
@@ -53,6 +64,9 @@ TODO:
         the machine. Your code should end execution when this happens.
 '''
 
+
+def report():
+    pass
 '''
 TODO: 
 3. Print report.
@@ -73,6 +87,9 @@ TODO:
         not continue to make the drink but print: “Sorry there is not enough water.”
     c. The same should happen if another resource is depleted, e.g. milk or coffee.
 '''
+
+def transaction():
+    pass
 
 '''
 TODO: 
@@ -123,3 +140,10 @@ TODO:
     b. Once all resources have been deducted, tell the user “Here is your latte. Enjoy!”. If
         latte was their choice of drink.
 '''
+
+
+
+
+print(espresso)
+print(latte)
+print(cappuccino)
