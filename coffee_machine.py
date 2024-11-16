@@ -49,6 +49,11 @@ espresso = format_menu("espresso")
 latte = format_menu("latte")
 cappuccino = format_menu("cappuccino")
 
+def menu_ingredients(menu_item):
+    ingredients = menu_item["ingredients"]
+    return ingredients
+
+
 '''
 TODO: 
 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
@@ -144,6 +149,6 @@ TODO:
 
 
 
-print(espresso)
+print(espresso['ingredients'])
 print(latte)
 print(cappuccino)
