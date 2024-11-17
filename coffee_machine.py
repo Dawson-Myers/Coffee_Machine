@@ -37,6 +37,23 @@ espresso_cost = menu_cost(espresso)
 latte_cost = menu_cost(latte)
 cappuccino_cost = menu_cost(cappuccino)
 
+def format_resources(item):
+    water_resource = resources["water"]
+    milk_resource = resources["milk"]
+    coffee_resource = resources["coffee"]
+    if item == "water":
+        return water_resource
+    elif item == "milk":
+        return milk_resource
+    elif item == "coffee":
+        return coffee_resource
+    else:
+        print("invalid inventory item")
+
+water = format_resources("water")
+milk = format_resources("milk")
+coffee = format_resources("coffee")
+
 '''
 TODO: 
 1. Prompt user by asking “What would you like? (espresso/latte/cappuccino):”
@@ -44,7 +61,8 @@ TODO:
     b. The prompt should show every time action has completed, e.g. once the drink is dispensed. The prompt should show again to serve the next customer.
 
 ''' 
-
+def coffe_machine():
+    pass
 '''
 TODO:
 2. Turn off the Coffee Machine by entering “off” to the prompt.
@@ -143,3 +161,7 @@ print("\n" * 3)
 print(espresso_cost)
 print(latte_cost)
 print(cappuccino_cost)
+print("\n" * 3)
+print(water)
+print(milk)
+print(coffee)
