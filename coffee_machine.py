@@ -1,6 +1,6 @@
 from menu import MENU
-
 from resources import resources
+
 
 """Formats Menu into passable variables"""
 def format_menu(menu_item):
@@ -16,6 +16,7 @@ def format_menu(menu_item):
     else:
         print("invalid selection")
 
+# Variables for format_menu()
 espresso = format_menu("espresso")
 latte = format_menu("latte")
 cappuccino = format_menu("cappuccino")
@@ -26,6 +27,7 @@ def menu_ingredients(menu_item):
     ingredients = menu_item["ingredients"]
     return ingredients
 
+# Variable for menu_ingredients()
 espresso_ingredients = menu_ingredients(espresso)
 latte_ingredients = menu_ingredients(latte)
 cappuccino_ingredients = menu_ingredients(cappuccino)
@@ -36,6 +38,7 @@ def menu_cost(menu_item):
     cost = menu_item["cost"]
     return cost
 
+# Variables for menu_cost()
 espresso_cost = menu_cost(espresso)
 latte_cost = menu_cost(latte)
 cappuccino_cost = menu_cost(cappuccino)
@@ -55,6 +58,7 @@ def format_resources(item):
     else:
         print("invalid inventory item")
 
+# Variables for format_resources()
 water = format_resources("water")
 milk = format_resources("milk")
 coffee = format_resources("coffee")
@@ -67,9 +71,17 @@ TODO:
     a. Check the user’s input to decide what to do next.
     b. The prompt should show every time action has completed, e.g. once the drink is dispensed. The prompt should show again to serve the next customer.
 
+
 ''' 
-def coffe_machine():
-    pass
+
+def take_order():
+    cust_order = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    return cust_order
+
+
+def coffe_machine(cust_order):
+    if cust_order == "off":
+        pass
 '''
 TODO:
 2. Turn off the Coffee Machine by entering “off” to the prompt.
