@@ -2,7 +2,14 @@ from menu import MENU
 from resources import resources
 
 
-"""Formats Menu into passable variables"""
+"""
+    format_menu(menu_item): 
+~~ Formats Menu into passable variables ~~
+    Variables Belows:
+     - espresso
+     - latte
+     - cappuccino
+"""
 def format_menu(menu_item):
     item_espresso = MENU["espresso"]
     item_latte = MENU["latte"]
@@ -22,7 +29,14 @@ latte = format_menu("latte")
 cappuccino = format_menu("cappuccino")
 
 
-"""Formats Menu Ingredients into passable variables"""
+""" 
+    menu_ingredients(menu_item): 
+~~ Formats Menu Ingredients into passable variables ~~
+    Variables Below: 
+     - espresso_ingredients
+     - latte_ingredients
+     - cappuccino_ingredients
+"""
 def menu_ingredients(menu_item):
     ingredients = menu_item["ingredients"]
     return ingredients
@@ -33,7 +47,14 @@ latte_ingredients = menu_ingredients(latte)
 cappuccino_ingredients = menu_ingredients(cappuccino)
 
 
-"""Formats Menu Item Cost into passable variables"""
+"""
+    menu_cost(menu_item): 
+~~ Formats Menu Item Cost into passable variables ~~
+    Variables Below:
+     - espresso_cost
+     - latte_cost
+     - cappuccino_cost
+"""
 def menu_cost(menu_item):
     cost = menu_item["cost"]
     return cost
@@ -44,7 +65,14 @@ latte_cost = menu_cost(latte)
 cappuccino_cost = menu_cost(cappuccino)
 
 
-"""Formats Resource Data into passable variables"""
+"""
+    format_resources(item): 
+~~ Formats Resource Data into passable variables ~~
+    Variables Below:
+     - water
+     - milk
+     - coffee
+"""
 def format_resources(item):
     water_resource = resources["water"]
     milk_resource = resources["milk"]
