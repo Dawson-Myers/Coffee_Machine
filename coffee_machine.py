@@ -92,6 +92,38 @@ milk = format_resources("milk")
 coffee = format_resources("coffee")
 
 
+def coffee_machine():
+    cust_order = input("What would you like? (espresso/latte/cappuccino): ").lower()
+    if cust_order == "off":
+        return
+    elif cust_order == "espresso":
+        return espresso
+    elif cust_order == "latte":
+        return latte
+    elif cust_order == "cappuccino":
+        return cappuccino
+    elif cust_order == "report":
+        print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')
+    else:
+        return
+
+make_coffee = True
+while make_coffee:
+    make_drink = coffee_machine()
+    if make_drink == espresso:
+        print("you chose espresso")
+    elif make_drink == latte:
+        print("you chose latte")
+    elif make_drink == cappuccino:
+        print("you chose cappuccino")
+
+def transaction():
+    
+    pass
+
+
+
+
 
 '''
 TODO: 
@@ -100,35 +132,11 @@ TODO:
     b. The prompt should show every time action has completed, e.g. once the drink is dispensed. The prompt should show again to serve the next customer.
 
 
-''' 
-
-def take_order():
-    cust_order = input("What would you like? (espresso/latte/cappuccino): ").lower()
-    return cust_order
-
-
-def coffe_machine(cust_order):
-    if cust_order == "off":
-        return
-    elif cust_order == "espresso":
-        pass
-    elif cust_order == "latte":
-        pass
-    elif cust_order == "cappuccino":
-        pass
-    elif cust_order == "report":
-        print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')
-    else:
-        return
-'''
 TODO:
 2. Turn off the Coffee Machine by entering “off” to the prompt.
     a. For maintainers of the coffee machine, they can use “off” as the secret word to turn off
         the machine. Your code should end execution when this happens.
-'''
- 
 
-'''
 TODO: 
 3. Print report.
     a. When the user enters “report” to the prompt, a report should be generated that shows
@@ -137,9 +145,7 @@ TODO:
         Milk: 50ml
         Coffee: 76g
         Money: $2.5
-'''
 
-'''
 TODO:
 4. Check resources sufficient?
     a. When the user chooses a drink, the program should check if there are enough
@@ -147,12 +153,7 @@ TODO:
     b. E.g. if Latte requires 200ml water but there is only 100ml left in the machine. It should
         not continue to make the drink but print: “Sorry there is not enough water.”
     c. The same should happen if another resource is depleted, e.g. milk or coffee.
-'''
 
-def transaction():
-    pass
-
-'''
 TODO: 
 5. Process coins.
     a. If there are sufficient resources to make the drink selected, then the program should
@@ -160,9 +161,7 @@ TODO:
     b. Remember that quarters = $0.25, dimes = $0.10, nickles = $0.05, pennies = $0.01
     c. Calculate the monetary value of the coins inserted. E.g. 1 quarter, 2 dimes, 1 nickel, 2
         pennies = 0.25 + 0.1 x 2 + 0.05 + 0.01 x 2 = $0.52
-'''
 
-'''
 TODO:
 6. Check transaction successful?
     a. Check that the user has inserted enough money to purchase the drink they selected.
@@ -177,9 +176,7 @@ TODO:
     c. If the user has inserted too much money, the machine should offer change.
         E.g. “Here is $2.45 dollars in change.” The change should be rounded to 2 decimal
         places.
-'''
 
-'''
 TODO:
 7. Make Coffee.
     a. If the transaction is successful and there are enough resources to make the drink the
@@ -205,20 +202,21 @@ TODO:
 
 
 
-print(espresso)
-print(latte)
-print(cappuccino)
-print()
-print(espresso_ingredients)
-print(latte_ingredients)
-print(cappuccino_ingredients)
-print()
-print(espresso_cost)
-print(latte_cost)
-print(cappuccino_cost)
-print()
-print(water)
-print(milk)
-print(coffee)
+# print(espresso)
+# print(latte)
+# print(cappuccino)
+# print()
+# print(espresso_ingredients)
+# print(latte_ingredients)
+# print(cappuccino_ingredients)
+# print()
+# print(espresso_cost)
+# print(latte_cost)
+# print(cappuccino_cost)
+# print()
+# print(water)
+# print(milk)
+# print(coffee)
 
-report()
+
+
