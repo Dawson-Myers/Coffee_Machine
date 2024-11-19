@@ -112,16 +112,13 @@ while make_coffee:
     make_drink = coffee_machine()
     if make_drink == espresso:
         print("you chose espresso")
+        print(f"Cost: ${espresso_cost:.2f}")
     elif make_drink == latte:
         print("you chose latte")
+        print(f"Cost: ${latte_cost:.2f}")
     elif make_drink == cappuccino:
         print("you chose cappuccino")
-
-def transaction():
-    
-    pass
-
-
+        print(f"Cost: ${cappuccino_cost:.2f}")
 
 
 
