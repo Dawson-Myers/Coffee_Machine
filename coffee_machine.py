@@ -117,7 +117,7 @@ def coffe_machine(cust_order):
     elif cust_order == "cappuccino":
         pass
     elif cust_order == "report":
-        report()
+        print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')
     else:
         return
 '''
@@ -126,10 +126,7 @@ TODO:
     a. For maintainers of the coffee machine, they can use “off” as the secret word to turn off
         the machine. Your code should end execution when this happens.
 '''
-
-
-def report():
-    print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')
+ 
 
 '''
 TODO: 
