@@ -109,7 +109,17 @@ def take_order():
 
 def coffe_machine(cust_order):
     if cust_order == "off":
+        return
+    elif cust_order == "espresso":
         pass
+    elif cust_order == "latte":
+        pass
+    elif cust_order == "cappuccino":
+        pass
+    elif cust_order == "report":
+        report()
+    else:
+        return
 '''
 TODO:
 2. Turn off the Coffee Machine by entering “off” to the prompt.
@@ -119,7 +129,8 @@ TODO:
 
 
 def report():
-    pass
+    print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')
+
 '''
 TODO: 
 3. Print report.
@@ -200,15 +211,17 @@ TODO:
 print(espresso)
 print(latte)
 print(cappuccino)
-print("\n" * 3)
+print()
 print(espresso_ingredients)
 print(latte_ingredients)
 print(cappuccino_ingredients)
-print("\n" * 3)
+print()
 print(espresso_cost)
 print(latte_cost)
 print(cappuccino_cost)
-print("\n" * 3)
+print()
 print(water)
 print(milk)
 print(coffee)
+
+report()
