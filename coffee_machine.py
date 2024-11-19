@@ -103,22 +103,28 @@ def coffee_machine():
     elif cust_order == "cappuccino":
         return cappuccino
     elif cust_order == "report":
-        print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')
+        report()
     else:
         return
+
+def report():   
+    print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')    
 
 make_coffee = True
 while make_coffee:
     make_drink = coffee_machine()
     if make_drink == espresso:
+        water, milk, coffee -= espresso_ingredients # FIXME: Needs to be updated to not use a tuple
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
+        report()
     elif make_drink == latte:
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
     elif make_drink == cappuccino:
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
+
 
 
 
