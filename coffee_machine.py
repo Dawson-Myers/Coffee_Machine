@@ -114,18 +114,29 @@ make_coffee = True
 while make_coffee:
     make_drink = coffee_machine()
     if make_drink == espresso:
-        water, milk, coffee -= espresso_ingredients # FIXME: Needs to be updated to not use a tuple
+        water -= espresso_ingredients["water"]
+        coffee -= espresso_ingredients["coffee"]
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
         report()
     elif make_drink == latte:
+        water -= latte_ingredients["water"]
+        milk -= latte_ingredients["milk"]
+        coffee -= latte_ingredients["coffee"]
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
+        report()
     elif make_drink == cappuccino:
+        water -= cappuccino_ingredients["water"]
+        milk -= cappuccino_ingredients["milk"]
+        coffee -= cappuccino_ingredients["coffee"]
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
+        report()
 
 
+def ingredient_update(menu_item):
+    pass    
 
 
 '''
