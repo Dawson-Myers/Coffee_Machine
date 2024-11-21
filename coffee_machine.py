@@ -3,13 +3,6 @@ from resources import resources
 
 
 def format_menu(menu_item):
-    """
-~~ Formats Menu into passable variables ~~
-    Variables Belows:
-     - espresso
-     - latte
-     - cappuccino
-"""
     item_espresso = MENU["espresso"]
     item_latte = MENU["latte"]
     item_cappuccino = MENU["cappuccino"]
@@ -29,13 +22,6 @@ cappuccino = format_menu("cappuccino")
 
 
 def menu_ingredients(menu_item):
-    """ 
-~~ Formats Menu Ingredients into passable variables ~~
-    Variables Below: 
-     - espresso_ingredients
-     - latte_ingredients
-     - cappuccino_ingredients
-"""
     ingredients = menu_item["ingredients"]
     return ingredients
 
@@ -45,15 +31,7 @@ latte_ingredients = menu_ingredients(latte)
 cappuccino_ingredients = menu_ingredients(cappuccino)
 
 
-
 def menu_cost(menu_item):
-    """
-~~ Formats Menu Item Cost into passable variables ~~
-    Variables Below:
-     - espresso_cost
-     - latte_cost
-     - cappuccino_cost
-"""
     cost = menu_item["cost"]
     return cost
 
@@ -65,13 +43,6 @@ cappuccino_cost = menu_cost(cappuccino)
 
 
 def format_resources(item):
-    """
-~~ Formats Resource Data into passable variables ~~
-    Variables Below:
-     - water
-     - milk
-     - coffee
-"""
     water_resource = resources["water"]
     milk_resource = resources["milk"]
     coffee_resource = resources["coffee"]
@@ -105,39 +76,38 @@ def coffee_machine():
     else:
         return
 
+
 def report():   
     print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')    
+
 
 make_coffee = True
 while make_coffee:
     make_drink = coffee_machine()
+
     if make_drink == espresso:
-        water -= espresso_ingredients["water"]
-        coffee -= espresso_ingredients["coffee"]
+        # water -= espresso_ingredients["water"]
+        # coffee -= espresso_ingredients["coffee"]
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
         report()
     elif make_drink == latte:
-        water -= latte_ingredients["water"]
-        milk -= latte_ingredients["milk"]
-        coffee -= latte_ingredients["coffee"]
+        # water -= latte_ingredients["water"]
+        # milk -= latte_ingredients["milk"]
+        # coffee -= latte_ingredients["coffee"]
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
         report()
     elif make_drink == cappuccino:
-        water -= cappuccino_ingredients["water"]
-        milk -= cappuccino_ingredients["milk"]
-        coffee -= cappuccino_ingredients["coffee"]
+        # water -= cappuccino_ingredients["water"]
+        # milk -= cappuccino_ingredients["milk"]
+        # coffee -= cappuccino_ingredients["coffee"]
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
         report()
 
 
-def ingredient_update():
-    def resource_status():
-        resources
-        pass
-    pass
+
 
 
 '''
@@ -235,3 +205,32 @@ TODO:
 
 
 
+
+"""
+~~ Formats Menu into passable variables ~~
+    Variables Belows:
+     - espresso
+     - latte
+     - cappuccino
+"""
+""" 
+~~ Formats Menu Ingredients into passable variables ~~
+    Variables Below: 
+     - espresso_ingredients
+     - latte_ingredients
+     - cappuccino_ingredients
+"""
+"""
+~~ Formats Menu Item Cost into passable variables ~~
+    Variables Below:
+     - espresso_cost
+     - latte_cost
+     - cappuccino_cost
+"""
+"""
+~~ Formats Resource Data into passable variables ~~
+    Variables Below:
+     - water
+     - milk
+     - coffee
+"""
