@@ -2,15 +2,14 @@ from menu import MENU
 from resources import resources
 
 
-"""
-    format_menu(menu_item): 
+def format_menu(menu_item):
+    """
 ~~ Formats Menu into passable variables ~~
     Variables Belows:
      - espresso
      - latte
      - cappuccino
 """
-def format_menu(menu_item):
     item_espresso = MENU["espresso"]
     item_latte = MENU["latte"]
     item_cappuccino = MENU["cappuccino"]
@@ -29,15 +28,14 @@ latte = format_menu("latte")
 cappuccino = format_menu("cappuccino")
 
 
-""" 
-    menu_ingredients(menu_item): 
+def menu_ingredients(menu_item):
+    """ 
 ~~ Formats Menu Ingredients into passable variables ~~
     Variables Below: 
      - espresso_ingredients
      - latte_ingredients
      - cappuccino_ingredients
 """
-def menu_ingredients(menu_item):
     ingredients = menu_item["ingredients"]
     return ingredients
 
@@ -47,15 +45,15 @@ latte_ingredients = menu_ingredients(latte)
 cappuccino_ingredients = menu_ingredients(cappuccino)
 
 
-"""
-    menu_cost(menu_item): 
+
+def menu_cost(menu_item):
+    """
 ~~ Formats Menu Item Cost into passable variables ~~
     Variables Below:
      - espresso_cost
      - latte_cost
      - cappuccino_cost
 """
-def menu_cost(menu_item):
     cost = menu_item["cost"]
     return cost
 
@@ -65,15 +63,15 @@ latte_cost = menu_cost(latte)
 cappuccino_cost = menu_cost(cappuccino)
 
 
-"""
-    format_resources(item): 
+
+def format_resources(item):
+    """
 ~~ Formats Resource Data into passable variables ~~
     Variables Below:
      - water
      - milk
      - coffee
 """
-def format_resources(item):
     water_resource = resources["water"]
     milk_resource = resources["milk"]
     coffee_resource = resources["coffee"]
@@ -95,7 +93,7 @@ coffee = format_resources("coffee")
 def coffee_machine():
     cust_order = input("What would you like? (espresso/latte/cappuccino): ").lower()
     if cust_order == "off":
-        return
+        return make_coffee == False
     elif cust_order == "espresso":
         return espresso
     elif cust_order == "latte":
@@ -135,8 +133,11 @@ while make_coffee:
         report()
 
 
-def ingredient_update(menu_item):
-    pass    
+def ingredient_update():
+    def resource_status():
+        resources
+        pass
+    pass
 
 
 '''
