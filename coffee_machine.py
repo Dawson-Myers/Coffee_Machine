@@ -117,8 +117,9 @@ def check_resources():
         else:
             return no_water
 
-
-def update_resource(water, coffee, milk):         
+# FIXME: Needs to update inventory items 
+def update_resource(water, coffee, milk):
+    ingredients = water, coffee, milk         
     for ingredients in espresso_ingredients:
         water -= espresso_ingredients["water"]
         coffee -= espresso_ingredients["coffee"]
@@ -130,6 +131,7 @@ def update_resource(water, coffee, milk):
         water -= cappuccino_ingredients["water"]
         coffee -= cappuccino_ingredients["coffee"]
         milk -= cappuccino_ingredients["milk"]
+    return ingredients
 
         
 
