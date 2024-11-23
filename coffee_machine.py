@@ -120,6 +120,19 @@ def check_resources():
 
 
 def update_resource():         
+    for water, coffee  in espresso_ingredients:
+        water -= espresso_ingredients["water"]
+        coffee -= espresso_ingredients["coffee"]
+    for water, coffee, milk in latte_ingredients:
+        water -= latte_ingredients["water"]
+        coffee -= latte_ingredients["coffee"]
+        milk -= latte_ingredients["milk"]
+    for water, coffee, milk in cappuccino_ingredients:
+        water -= cappuccino_ingredients["water"]
+        coffee -= cappuccino_ingredients["coffee"]
+        milk -= cappuccino_ingredients["milk"]
+
+        
 
 make_coffee = True
 while make_coffee:
@@ -127,24 +140,19 @@ while make_coffee:
 
     if make_drink == espresso:
         check_resources()
-        # water -= espresso_ingredients["water"]
-        # coffee -= espresso_ingredients["coffee"]
+        update_resource()
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
         report()
     elif make_drink == latte:
         check_resources()
-        # water -= latte_ingredients["water"]
-        # milk -= latte_ingredients["milk"]
-        # coffee -= latte_ingredients["coffee"]
+        update_resource()
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
         report()
     elif make_drink == cappuccino:
         check_resources()
-        # water -= cappuccino_ingredients["water"]
-        # milk -= cappuccino_ingredients["milk"]
-        # coffee -= cappuccino_ingredients["coffee"]
+        update_resource()
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
         report()
