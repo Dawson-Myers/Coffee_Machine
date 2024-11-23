@@ -81,17 +81,59 @@ def report():
     print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')    
 
 
+def check_resources():
+    resource_status = "full"
+    no_water = "Sorry not enough water."
+    no_coffee = "Sorry not enough coffee."
+    no_milk = "Sorry not enough milk."
+    for water, coffee in espresso_ingredients:
+        if water >= espresso_ingredients["water"]:
+            if coffee >= espresso_ingredients["coffee"]:
+                return resource_status
+            else:
+                return no_coffee
+        else:
+            return no_water
+    for water, coffee, milk in latte_ingredients:
+        if water >= latte_ingredients["water"]:
+            if coffee >= latte_ingredients["coffee"]:
+                if milk >= latte_ingredients["milk"]:
+                    return resource_status
+                else:
+                    return no_milk
+            else:
+                return no_coffee
+        else:
+            return no_water
+        
+    for water, coffee, milk in cappuccino_ingredients:
+        if water >= cappuccino_ingredients["water"]:
+            if coffee >= cappuccino_ingredients["coffee"]:
+                if milk >= cappuccino_ingredients["milk"]:
+                    return resource_status
+                else:
+                    return no_milk
+            else:
+                return no_coffee
+        else:
+            return no_water
+
+
+def update_resource():         
+
 make_coffee = True
 while make_coffee:
     make_drink = coffee_machine()
 
     if make_drink == espresso:
+        check_resources()
         # water -= espresso_ingredients["water"]
         # coffee -= espresso_ingredients["coffee"]
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
         report()
     elif make_drink == latte:
+        check_resources()
         # water -= latte_ingredients["water"]
         # milk -= latte_ingredients["milk"]
         # coffee -= latte_ingredients["coffee"]
@@ -99,6 +141,7 @@ while make_coffee:
         print(f"Cost: ${latte_cost:.2f}")
         report()
     elif make_drink == cappuccino:
+        check_resources()
         # water -= cappuccino_ingredients["water"]
         # milk -= cappuccino_ingredients["milk"]
         # coffee -= cappuccino_ingredients["coffee"]
