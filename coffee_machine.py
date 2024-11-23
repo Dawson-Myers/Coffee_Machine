@@ -74,7 +74,7 @@ def coffee_machine():
     elif cust_order == "report":
         report()
     else:
-        return
+        print("invalid selection")
 
 
 def report():   
@@ -82,23 +82,22 @@ def report():
 
 
 def check_resources():
-    resource_status = "full"
     no_water = "Sorry not enough water."
     no_coffee = "Sorry not enough coffee."
     no_milk = "Sorry not enough milk."
-    for water, coffee in espresso_ingredients:
+    for ingredients in espresso_ingredients:
         if water >= espresso_ingredients["water"]:
             if coffee >= espresso_ingredients["coffee"]:
-                return resource_status
+                return espresso_ingredients
             else:
                 return no_coffee
         else:
             return no_water
-    for water, coffee, milk in latte_ingredients:
+    for ingredients in latte_ingredients:
         if water >= latte_ingredients["water"]:
             if coffee >= latte_ingredients["coffee"]:
                 if milk >= latte_ingredients["milk"]:
-                    return resource_status
+                    return latte_ingredients
                 else:
                     return no_milk
             else:
@@ -106,11 +105,11 @@ def check_resources():
         else:
             return no_water
         
-    for water, coffee, milk in cappuccino_ingredients:
+    for ingredients in cappuccino_ingredients:
         if water >= cappuccino_ingredients["water"]:
             if coffee >= cappuccino_ingredients["coffee"]:
                 if milk >= cappuccino_ingredients["milk"]:
-                    return resource_status
+                    return cappuccino_ingredients
                 else:
                     return no_milk
             else:
@@ -119,15 +118,15 @@ def check_resources():
             return no_water
 
 
-def update_resource():         
-    for water, coffee  in espresso_ingredients:
+def update_resource(water, coffee, milk):         
+    for ingredients in espresso_ingredients:
         water -= espresso_ingredients["water"]
         coffee -= espresso_ingredients["coffee"]
-    for water, coffee, milk in latte_ingredients:
+    for ingredients in latte_ingredients:
         water -= latte_ingredients["water"]
         coffee -= latte_ingredients["coffee"]
         milk -= latte_ingredients["milk"]
-    for water, coffee, milk in cappuccino_ingredients:
+    for ingredients in cappuccino_ingredients:
         water -= cappuccino_ingredients["water"]
         coffee -= cappuccino_ingredients["coffee"]
         milk -= cappuccino_ingredients["milk"]
@@ -140,19 +139,19 @@ while make_coffee:
 
     if make_drink == espresso:
         check_resources()
-        update_resource()
+        update_resource(water, coffee, milk)
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
         report()
-    elif make_drink == latte:
+    if make_drink == latte:
         check_resources()
-        update_resource()
+        update_resource(water, coffee, milk)
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
         report()
-    elif make_drink == cappuccino:
+    if make_drink == cappuccino:
         check_resources()
-        update_resource()
+        update_resource(water, coffee, milk)
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
         report()
