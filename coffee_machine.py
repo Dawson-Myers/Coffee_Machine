@@ -80,80 +80,69 @@ def coffee_machine():
 def report():   
     print(f'Water: {water}ml\nMilk: {milk}ml\nCoffee: {coffee}g')    
 
-
-def check_resources():
-    no_water = "Sorry not enough water."
-    no_coffee = "Sorry not enough coffee."
-    no_milk = "Sorry not enough milk."
-    for ingredients in espresso_ingredients:
-        if water >= espresso_ingredients["water"]:
-            if coffee >= espresso_ingredients["coffee"]:
-                return espresso_ingredients
-            else:
-                return no_coffee
-        else:
-            return no_water
-    for ingredients in latte_ingredients:
-        if water >= latte_ingredients["water"]:
-            if coffee >= latte_ingredients["coffee"]:
-                if milk >= latte_ingredients["milk"]:
-                    return latte_ingredients
-                else:
-                    return no_milk
-            else:
-                return no_coffee
-        else:
-            return no_water
-        
-    for ingredients in cappuccino_ingredients:
-        if water >= cappuccino_ingredients["water"]:
-            if coffee >= cappuccino_ingredients["coffee"]:
-                if milk >= cappuccino_ingredients["milk"]:
-                    return cappuccino_ingredients
-                else:
-                    return no_milk
-            else:
-                return no_coffee
-        else:
-            return no_water
-
-# FIXME: Needs to update inventory items 
-def update_resource(water, coffee, milk):
-    ingredients = water, coffee, milk         
-    for ingredients in espresso_ingredients:
-        water -= espresso_ingredients["water"]
-        coffee -= espresso_ingredients["coffee"]
-    for ingredients in latte_ingredients:
-        water -= latte_ingredients["water"]
-        coffee -= latte_ingredients["coffee"]
-        milk -= latte_ingredients["milk"]
-    for ingredients in cappuccino_ingredients:
-        water -= cappuccino_ingredients["water"]
-        coffee -= cappuccino_ingredients["coffee"]
-        milk -= cappuccino_ingredients["milk"]
-    return ingredients
-
-        
+    
 
 make_coffee = True
 while make_coffee:
     make_drink = coffee_machine()
+    no_water = "Sorry not enough water."
+    no_coffee = "Sorry not enough coffee."
+    no_milk = "Sorry not enough milk."
 
     if make_drink == espresso:
-        check_resources()
-        update_resource(water, coffee, milk)
+        for ingredients in espresso_ingredients:
+            if water >= espresso_ingredients["water"]:
+                if coffee >= espresso_ingredients["coffee"]:
+                    water -= espresso_ingredients["water"]
+                    coffee -= espresso_ingredients["coffee"]
+                else:
+                    print(no_coffee)
+                    make_coffee = False
+            else:
+                print(no_water)
+                make_coffee = False
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
         report()
+
     if make_drink == latte:
-        check_resources()
-        update_resource(water, coffee, milk)
+        for ingredients in latte_ingredients:
+            if water >= latte_ingredients["water"]:
+                if coffee >= latte_ingredients["coffee"]:
+                    if milk >= latte_ingredients["milk"]:
+                        water -= latte_ingredients["water"]
+                        coffee -= latte_ingredients["coffee"]
+                        milk -= latte_ingredients["milk"]
+                    else:
+                        print(no_milk)
+                        make_coffee = False
+                else:
+                    print(no_coffee)
+                    make_coffee = False
+            else:
+                print(no_water)
+                make_coffee = False
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
         report()
+
     if make_drink == cappuccino:
-        check_resources()
-        update_resource(water, coffee, milk)
+        for ingredients in cappuccino_ingredients:
+            if water >= cappuccino_ingredients["water"]:
+                if coffee >= cappuccino_ingredients["coffee"]:
+                    if milk >= cappuccino_ingredients["milk"]:
+                        water -= cappuccino_ingredients["water"]
+                        coffee -= cappuccino_ingredients["coffee"]
+                        milk -= cappuccino_ingredients["milk"]
+                    else:
+                        print(no_milk)
+                        make_coffee = False
+                else:
+                    print(no_coffee)
+                    make_coffee = False
+            else:
+                print(no_water)
+                make_coffee = False
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
         report()
