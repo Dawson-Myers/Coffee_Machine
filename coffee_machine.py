@@ -64,7 +64,7 @@ coffee = format_resources("coffee")
 def coffee_machine():
     cust_order = input("What would you like? (espresso/latte/cappuccino): ").lower()
     if cust_order == "off":
-        return make_coffee == False
+        return 'off'
     elif cust_order == "espresso":
         return espresso
     elif cust_order == "latte":
@@ -84,11 +84,14 @@ def report():
 
 make_coffee = True
 while make_coffee:
+
     make_drink = coffee_machine()
     no_water = "Sorry not enough water."
     no_coffee = "Sorry not enough coffee."
     no_milk = "Sorry not enough milk."
 
+    if make_drink == 'off':
+        make_coffee = False
     if make_drink == espresso:
         for ingredients in espresso_ingredients:
             if water >= espresso_ingredients["water"]:
@@ -103,7 +106,7 @@ while make_coffee:
                 make_coffee = False
         print("you chose espresso")
         print(f"Cost: ${espresso_cost:.2f}")
-        report()
+        # report()
 
     if make_drink == latte:
         for ingredients in latte_ingredients:
@@ -124,7 +127,7 @@ while make_coffee:
                 make_coffee = False
         print("you chose latte")
         print(f"Cost: ${latte_cost:.2f}")
-        report()
+        # report()
 
     if make_drink == cappuccino:
         for ingredients in cappuccino_ingredients:
@@ -145,7 +148,7 @@ while make_coffee:
                 make_coffee = False
         print("you chose cappuccino")
         print(f"Cost: ${cappuccino_cost:.2f}")
-        report()
+        # report()
 
 
 
@@ -225,53 +228,3 @@ TODO:
         latte was their choice of drink.
 '''
 
-
-
-
-# print(espresso)
-# print(latte)
-# print(cappuccino)
-# print()
-# print(espresso_ingredients)
-# print(latte_ingredients)
-# print(cappuccino_ingredients)
-# print()
-# print(espresso_cost)
-# print(latte_cost)
-# print(cappuccino_cost)
-# print()
-# print(water)
-# print(milk)
-# print(coffee)
-
-
-
-
-"""
-~~ Formats Menu into passable variables ~~
-    Variables Belows:
-     - espresso
-     - latte
-     - cappuccino
-"""
-""" 
-~~ Formats Menu Ingredients into passable variables ~~
-    Variables Below: 
-     - espresso_ingredients
-     - latte_ingredients
-     - cappuccino_ingredients
-"""
-"""
-~~ Formats Menu Item Cost into passable variables ~~
-    Variables Below:
-     - espresso_cost
-     - latte_cost
-     - cappuccino_cost
-"""
-"""
-~~ Formats Resource Data into passable variables ~~
-    Variables Below:
-     - water
-     - milk
-     - coffee
-"""
